@@ -62,4 +62,7 @@ int main()
   men.push_back(infantry_factory->createWarrior());
   men.push_back(archers_factory->createWarrior());
   men.push_back(hourse_man_factory->createWarrior());
+  for (auto i :men){
+    i->Info();
+  }
  }
