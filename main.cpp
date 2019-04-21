@@ -1,68 +1,68 @@
 #include <iostream>
 #include<vector>
 using namespace std;
-class Warrior {
+class MainBattleTank {
 public:
   virtual void Info()=0;
-  virtual ~Warrior (){}
+  virtual ~MainBattleTank (){}
 };
 
-class InfantryMan:public Warrior{
+class M60:public MainBattleTank{
 public:
   void Info(){
-    cout<<"Infantryman"<<endl;
+    cout<<"M60<<Patton>>"<<endl;
   }
 };
-class Archer:public Warrior{
+class M1A1:public MainBattleTank{
 public:
   void Info(){
-    cout<<"Archer"<<endl;
+    cout<<"M1A1"<<endl;
   }
 };
-class HorseMan:public Warrior{
+class M550:public MainBattleTank{
 public:
   void Info(){
-    cout<<"Horseman"<<endl;
+    cout<<"M550"<<endl;
   }
 };
 
 class Factory
 {
 public:
-  virtual Warrior* createWarrior()=0;
+  virtual MainBattleTank* AssembleTank()=0;
   virtual ~Factory()=default;
 };
-class InfantryManFactory :public Factory{
+class MediumTankFactory :public Factory{
 public:
-   Warrior* createWarrior() {
-    return new InfantryMan;
+   MainBattleTank* AssembleTank() {
+    return new M60 ;
   }
 };
 
-class ArcherManFactory:public Factory{
+class HeavyTankFactory:public Factory{
 public:
-  Warrior *createWarrior(){
-    return new Archer;
+  MainBattleTank * AssembleTank(){
+    return new M1A1;
   }
 };
-class HorseManFactory:public Factory {
-public:  Warrior *createWarrior(){
-    return new HorseMan;
+class LightTankFactory:public Factory {
+public:  MainBattleTank *AssembleTank(){
+    return new M550;
   }
 };
 
 
 int main()
 {
-  InfantryManFactory*infantry_factory= new InfantryManFactory;
-  ArcherManFactory* archers_factory = new ArcherManFactory;
-  HorseManFactory* hourse_man_factory = new HorseManFactory;
+  HeavyTankFactory*heavy_factory= new HeavyTankFactory;
+  MediumTankFactory* medium_factory = new MediumTankFactory;
+  LightTankFactory* light_factory = new LightTankFactory;
 
-  vector<Warrior*> men;
-  men.push_back(infantry_factory->createWarrior());
-  men.push_back(archers_factory->createWarrior());
-  men.push_back(hourse_man_factory->createWarrior());
-  for (auto i :men){
+  vector<MainBattleTank*> tanks;
+  tanks.push_back(heavy_factory->AssembleTank());
+  tanks.push_back(medium_factory->AssembleTank());
+  tanks.push_back(light_factory->AssembleTank());
+  for (auto i :tanks){
     i->Info();
   }
  }
