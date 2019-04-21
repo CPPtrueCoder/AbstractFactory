@@ -1,30 +1,65 @@
 #include <iostream>
 #include<vector>
 using namespace std;
+
+
+static int counttanks=0;
 class MainBattleTank {
 public:
   virtual void Info()=0;
+  void virtual GetID()=0;
   virtual ~MainBattleTank (){}
+
 };
+
 
 class M60:public MainBattleTank{
 public:
+  M60(){
+    counttanks++;
+    ID=counttanks;
+  }
+  void GetID(){
+    cout<<ID;
+  }
   void Info(){
     cout<<"M60<<Patton>>"<<endl;
   }
+private:
+  int ID;
+
 };
 class M1A1:public MainBattleTank{
 public:
+  M1A1(){
+    counttanks++;
+    ID=counttanks;
+  }
+  void GetID(){
+    cout<<ID;
+  }
   void Info(){
     cout<<"M1A1"<<endl;
   }
+private:
+  int ID;
 };
 class M550:public MainBattleTank{
 public:
+  M550(){
+    counttanks++;
+    ID=counttanks;
+  }
+  void GetID(){
+    cout<<ID;
+  }
   void Info(){
     cout<<"M550"<<endl;
   }
+private:
+  int ID;
 };
+
 
 class Factory
 {
@@ -59,10 +94,12 @@ int main()
   LightTankFactory* light_factory = new LightTankFactory;
 
   vector<MainBattleTank*> tanks;
+  for (int i =0; i<10;i++){
   tanks.push_back(heavy_factory->AssembleTank());
   tanks.push_back(medium_factory->AssembleTank());
-  tanks.push_back(light_factory->AssembleTank());
+  tanks.push_back(light_factory->AssembleTank());}
   for (auto i :tanks){
+    i->GetID();
     i->Info();
   }
  }
