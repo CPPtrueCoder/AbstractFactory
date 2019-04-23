@@ -1,10 +1,13 @@
 #ifndef M1A1_H
 #define M1A1_H
 #include "tanks.h"
-#include <iostream>
-class M1A1 {
+
+class M1A1 : public MainBattleTank {
 public:
-  M1A1();
+  M1A1() {
+    counttanks++;
+    ID = counttanks;
+  }
   void GetID();
   void Info();
 

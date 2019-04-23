@@ -1,6 +1,8 @@
 #include "m1a1.h"
 
-M1A1::M1A1()
-{
+void M1A1::GetID() { std::cout << ID << " "; }
 
+void M1A1::Info() {
+  cout << "M1A1,is ready for orders"
+       << " " << endl;
 }
