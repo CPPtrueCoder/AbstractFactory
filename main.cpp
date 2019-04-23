@@ -22,5 +22,7 @@ int main()
   for (auto i : tanks) {
     i->GetID();
     i->Info();
+    i->Moving();
+
   }
 }

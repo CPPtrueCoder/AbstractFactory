@@ -9,6 +9,7 @@ public:
   MainBattleTank() {}
   virtual void Info() = 0;
   virtual void GetID() = 0;
+  virtual void Moving()=0;
   virtual ~MainBattleTank() = default;
 };
 
