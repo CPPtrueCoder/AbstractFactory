@@ -4,7 +4,6 @@
 #include "tanks.h"
 class M550 : public MainBattleTank {
 public:
-  M550()=default;
   M550(InterfaceMoving* moving):moving_(moving) {
     counttanks++;
     ID = counttanks;

@@ -4,8 +4,7 @@
 #include "tanks.h"
 class M1A1 : public MainBattleTank {
 public:
-  M1A1(InterfaceMoving *moving) : moving_(moving) {}
-  M1A1() {
+  M1A1(InterfaceMoving *moving):moving_(moving) {
     counttanks++;
     ID = counttanks;
   }

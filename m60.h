@@ -4,7 +4,7 @@
 #include"interfacemoving.h"
 class M60 : public MainBattleTank {
 public:
-  M60()=default;
+
   M60(InterfaceMoving * moving):moving_(moving) {
     counttanks++;
     ID = counttanks;

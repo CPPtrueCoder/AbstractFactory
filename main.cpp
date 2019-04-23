@@ -20,9 +20,8 @@ int main()
   tanks.push_back(light_factory->AssembleTank());
   tanks.push_back(medium_factory->AssembleTank());
   for (auto i : tanks) {
-    i->GetID();
-    i->Info();
-    i->Moving();
-
+   i->GetID();
+   i->Info();
+   i->Moving();
   }
 }
