@@ -2,4 +2,4 @@
 
 LightFactory::LightFactory() {}
 
-MainBattleTank *LightFactory::AssembleTank() { return new M550; }
+MainBattleTank *LightFactory::AssembleTank() { return new M550(new LineMoving); }
